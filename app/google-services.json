@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "13495717236",
+    "firebase_url": "https://mystayhome-51416.firebaseio.com",
+    "project_id": "mystayhome-51416",
+    "storage_bucket": "mystayhome-51416.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:13495717236:android:10d197c0207cbba6da3021",
+        "android_client_info": {
+          "package_name": "com.highlevelindie.mystayhome"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "13495717236-fmj1u6n0mcptvo7vrc1ummkofjj8um4f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.highlevelindie.mystayhome",
+            "certificate_hash": "eafadbe4964a597c5d10665cd6d85bf0dbe5093d"
+          }
+        },
+        {
+          "client_id": "13495717236-jmc8uamj9lvb5edjs09d1pqi5ko5qcbj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBV1lh8VwigvM_XZaSF5eQdH9yH9YkRloE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "13495717236-jmc8uamj9lvb5edjs09d1pqi5ko5qcbj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

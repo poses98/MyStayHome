@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.highlevelindie.mystayhome">
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name="com.highlevelindie.mystayhome.ClapWall"></activity>
+        <activity android:name="com.highlevelindie.mystayhome.Profile" />
+        <activity android:name="com.highlevelindie.mystayhome.CreateUser" />
+        <activity android:name="com.highlevelindie.mystayhome.create_clap" />
+        <activity android:name="com.highlevelindie.mystayhome.SendClapScreen" />
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name="com.highlevelindie.mystayhome.MapsActivity"
+            android:label="@string/title_activity_maps" />
+        <activity android:name="com.highlevelindie.mystayhome.MainMenu" />
+        <activity android:name="com.highlevelindie.mystayhome.AskLocation" />
+        <activity android:name="com.highlevelindie.mystayhome.Nickname_selection" />
+        <activity android:name="com.highlevelindie.mystayhome.Age_selection" />
+        <activity android:name="com.highlevelindie.mystayhome.Gender_selection" />
+        <activity android:name="com.highlevelindie.mystayhome.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

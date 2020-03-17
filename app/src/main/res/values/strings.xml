@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">MyStayHome</string>
+    <string name="next">Siguiente</string>
+    <string name="signin">Entrar</string>
+    <string name="ageText">Introduce tu edad</string>
+    <string name="genderText">Selecciona tu sexo</string>
+    <string name="locationNeeded">Necesitamos tener acceso a tu localización para poder situarte y
+        que los demás te vean en el mapa :D</string>
+    <string name="locatonButton">PERMITIR ACCESO A LA LOCALIZACIÓN</string>
+    <string name="nickText">Elige el nombre de usuario</string>
+    <string name="anonText">Si no se rellena el campo se procederá de manera anónima, el nombre de
+    usuario se muestra en el mapa y en los agradecimientos al personal sanitario, puede seleccionarlo
+    más adelante.</string>
+    <string name="menuMap">MAPA USUARIOS EN CASA</string>
+    <string name="menuAplausos">APLAUSOS A LOS SANITARIOS</string>
+    <string name="menuAyuda">AYUDA</string>
+    <string name="menuPerfil">PERFIL</string>
+    <string name="contadorCiudad">USUARIOS EN TU CIUDAD</string>
+    <string name="contadorGeneral">USUARIOS EN TU PAÍS</string>
+    <string name="maleGender">HOMBRE</string>
+    <string name="femaleGender">MUJER</string>
+    <string name="otherGender">OTRO</string>
+    <string name="profileActivity">PERFIL DE USUARIO</string>
+    <string name="saveProfile">GUARDAR</string>
+    <string name="mapview">USUARIOS EN CASA</string>
+    <string name="clapwall">ÚLTIMOS 50 APLAUSOS</string>
+    <string name="clapviw">APLAUSOS</string>
+    <string name="cLAPCREATION">CREAR APLAUSO</string>
+    <string name="vermuro">VER MURO DE APLAUSOS</string>
+
+    <string name="sendClapText">Envía un aplauso a los sanitarios del país, ¡puedes acompañarlo
+    de un mensaje si lo deseas!</string>
+    <string name="clapsSent">APLAUSOS ENVIADOS EN EL PAÍS</string>
+    <string name="sendClapButton">ENVIAR MI APLAUSO</string>
+
+    <string name="stayHome">#QuédateEnCasa</string>
+    <string name="seResponsable">#SéResponsable</string>
+    <string name="title_activity_maps">Map</string>
+
+    <string name="creatingUser">Creando perfil de usuario...</string>
+    <string name="createInit">Dando forma al perfil</string>
+    <string name="createLocation">Cogiendo la localización</string>
+    <string name="createData">Llamando a la base de datos</string>
+    <string name="createInsert">Insertando datos en la base de datos</string>
+    <string name="createMap">Insertando localización en el mapa de </string>
+    <string name="createClap">Creando perfil de aplausos</string>
+    <string name="createCheck">Comprobando que todo ha ido bien</string>
+    <string name="createReady">Listo! Ya puedes usar la app</string>
+</resources>
