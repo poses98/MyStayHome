@@ -1,9 +1,12 @@
 package com.highlevelindie.mystayhome;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -54,19 +57,30 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
         general = findViewById(R.id.contGeneral);
         city = findViewById(R.id.contCiudad);
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         getUser();
     }
 
     private void getUser() {
-
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("users").document(mAuth.getCurrentUser().getUid()).get().addOnCompleteListener(
                 new OnCompleteListener<DocumentSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                        user = Objects.requireNonNull(task.getResult()).toObject(User.class);
-                        getCount();
+                        try {
+                            user = Objects.requireNonNull(task.getResult()).toObject(User.class);
+                        }catch(Exception e){
+                            user = new User();
+                            user.setCity("Madrid");
+                        }finally {
+                            getCount();
+                        }
+
                     }
                 });
     }
@@ -83,7 +97,12 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
 
             }
         });
-        mReference.child(user.getCity()).addValueEventListener(new ValueEventListener() {
+        String cityStr = "Madrid";
+        if(user != null) {
+            cityStr = user.getCity();
+        }
+
+        mReference.child(cityStr).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 city.setText("" + dataSnapshot.getChildrenCount());

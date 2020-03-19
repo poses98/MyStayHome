@@ -95,13 +95,12 @@
         <TextView
             android:id="@+id/countClap"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginStart="50dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="50dp"
             android:layout_marginBottom="25dp"
             android:gravity="center"
-            android:text="9999999"
             android:textColor="@color/colorPrimary"
             android:textSize="36sp"
             app:layout_constraintBottom_toTopOf="@+id/sendClap"
@@ -126,16 +125,19 @@
 
         <TextView
             android:id="@+id/viewWall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_marginStart="50dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="50dp"
             android:layout_marginBottom="74dp"
+            android:gravity="center"
             android:text="@string/vermuro"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sendClap" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

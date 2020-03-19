@@ -141,6 +141,7 @@ public class CreateUser extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 Intent intent = new Intent(getApplicationContext(), MainMenu.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();
             }

@@ -1,12 +1,15 @@
 package com.highlevelindie.mystayhome;
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private FirebaseAuth mAuth;
     private int permisos;
     private Button signIn;
+    private TextView tvPolitics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +33,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         mAuth = FirebaseAuth.getInstance();
+
+        tvPolitics = findViewById(R.id.politica);
+        tvPolitics.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showHelp(getClass());
+            }
+        });
 
         signIn = findViewById(R.id.askPermission);
         signIn.setOnClickListener(this);
@@ -69,5 +81,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
         });
+    }
+
+    private void showHelp(final Class target) {
+        final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+
+        alertDialogBuilder
+                .setTitle("POLÍTICA DE USO Y PRIVACIDAD")
+                .setMessage(R.string.privacypolitics)
+                .setCancelable(false)
+                .setPositiveButton("HECHO", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
     }
 }
