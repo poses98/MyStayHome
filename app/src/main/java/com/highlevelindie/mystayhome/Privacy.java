@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.Button;
 
 public class Privacy extends AppCompatActivity {
@@ -12,12 +13,11 @@ public class Privacy extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_privacy);
-        Button close = findViewById(R.id.closePolitics);
-        close.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+
+        WebView myWebView = new WebView(getApplicationContext());
+        setContentView(myWebView);
+        myWebView.loadUrl("http://www.highlevelindie.com");
+
+
     }
 }

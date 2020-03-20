@@ -6,35 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".Privacy">
 
-    <ScrollView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/politica"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/privacypolitics" />
-
-            <Button
-                android:id="@+id/closePolitics"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:background="@color/colorPrimaryDark"
-                android:text="VALE"
-                android:textColor="@color/textColor"
-                android:textSize="36sp" />
-
-        </LinearLayout>
-    </ScrollView>
+    <Button
+        android:id="@+id/closePolitics"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:text="VALE"
+        android:textColor="@color/textColor"
+        android:textSize="36sp"
+        tools:layout_editor_absoluteY="20dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

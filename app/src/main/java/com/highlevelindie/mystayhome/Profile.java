@@ -3,6 +3,7 @@ package com.highlevelindie.mystayhome;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -84,7 +85,8 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
                 updateProfile();
                 break;
             case R.id.politica:
-                Intent intent = new Intent(getApplicationContext(),Privacy.class);
+                Uri uri = Uri.parse("http://www.highlevelindie.com"); // missing 'http://' will cause crashed
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
                 break;
             case R.id.logout:

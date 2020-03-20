@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -39,7 +40,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tvPolitics.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),Privacy.class);
+                Uri uri = Uri.parse("http://www.highlevelindie.com"); // missing 'http://' will cause crashed
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
             }
         });
