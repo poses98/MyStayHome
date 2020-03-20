@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private int permisos;
     private Button signIn;
     private TextView tvPolitics;
+    private boolean error = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tvPolitics.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showHelp(getClass());
+                showHelp(getClass(), "POLITICA DE PRIVACIDAD", R.string.privacypolitics);
             }
         });
 
@@ -56,16 +57,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, permisos);
         }
         // SESSION
-
-        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-            startActivity(new Intent(this, MainMenu.class));
+        if (this.getIntent().getBooleanExtra("isNull", false) == false) {
+            if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+                startActivity(new Intent(this, MainMenu.class));
+            }
+        } else {
+            error = true;
         }
 
     }
 
     @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        if (error) {
+            showHelp(MainActivity.class, "HA OCURRIDO UN ERROR", R.string.nullError);
+        }
+    }
+
+    @Override
     public void onClick(View v) {
-        authInFirebase();
+        if(FirebaseAuth.getInstance().getCurrentUser() == null) {
+            authInFirebase();
+        }else{
+            Log.d("TAG", "onClick: continuando con el usuario creado");
+            Intent intent = new Intent(getApplicationContext(), Gender_selection.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
     private void authInFirebase() {
@@ -83,12 +102,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
-    private void showHelp(final Class target) {
+    private void showHelp(final Class target, String title, int message) {
         final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 
         alertDialogBuilder
-                .setTitle("POLÍTICA DE USO Y PRIVACIDAD")
-                .setMessage(R.string.privacypolitics)
+                .setTitle(title)
+                .setMessage(message)
                 .setCancelable(false)
                 .setPositiveButton("HECHO", new DialogInterface.OnClickListener() {
                     @Override

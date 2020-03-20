@@ -32,6 +32,7 @@
         android:layout_marginBottom="46dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:maxLength="15"
         android:textColor="@color/textColor"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/nextButton"
@@ -69,5 +70,20 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/charCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="289dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="77dp"
+        android:layout_marginBottom="17dp"
+        android:text="0/15"
+        android:textColor="@color/textColor"
+        app:layout_constraintBottom_toTopOf="@+id/nextButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nicknameTxt" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
@@ -20,16 +21,23 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.highlevelindie.mystayhome.model.Location;
+import com.highlevelindie.mystayhome.model.User;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener, View.OnClickListener {
 
@@ -74,31 +82,38 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      * Sets the current latitude and longitude
      */
     private void setLocation() {
-        Log.d("TAG", "setLocation: ");
-        fusedLocationClient.getLastLocation().addOnSuccessListener(MapsActivity.this, new OnSuccessListener<android.location.Location>() {
-            @Override
-            public void onSuccess(android.location.Location location) {
-                Log.d("TAG", "onSuccess: ");
-                // Got last known location. In some rare situations this can be null.
-                if (location != null) {
-                    ArrayList<Address> addresses = new ArrayList<Address>();
-                    Geocoder geocoder1 = new Geocoder(MapsActivity.this);
-                    try {
-                        addresses = (ArrayList<Address>) geocoder1.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-                        if (addresses != null && addresses.size() > 0) {
-                            Address address = addresses.get(0);
-                            usrChords = new LatLng(address.getLatitude(), address.getLongitude());
-                            getMarkers();
-                            setCamera();
+        db.collection("users").document(mAuth.getCurrentUser().getUid()).get().addOnCompleteListener(
+                new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        User user = new User();
+                        try {
+                            user = Objects.requireNonNull(task.getResult()).toObject(User.class);
+                        }catch(Exception e){
+                            user = new User();
+                            user.setCity("Madrid");
+                        }finally {
+                            try {
+                                usrChords = new LatLng(user.getLatitude(), user.getLongitude());
+                            }catch (NullPointerException e){
+                                Toast.makeText(getApplicationContext(),
+                                        "Se ha producido un error" +
+                                        "al recuperar la localización archivada, mandando a Madrid",
+                                        Toast.LENGTH_LONG).show();
+                                usrChords = new LatLng(40.4165001,-3.7025599);
+                            }finally {
+                                getMarkers();
+                                setCamera();
+                            }
                         }
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
 
-            }
-        });
+                    }
+                });
+
+
     }
 
     /**

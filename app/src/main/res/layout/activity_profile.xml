@@ -123,4 +123,42 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <Button
+        android:id="@+id/politica"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="53dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="12dp"
+        android:background="@android:color/darker_gray"
+        android:padding="15dp"
+        android:text="@string/showPrivacy"
+        android:textColor="@color/textColor"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/logout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logprof" />
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="114dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="25dp"
+        android:background="@android:color/darker_gray"
+        android:padding="15dp"
+        android:text="@string/deleteProfile"
+        android:textColor="@color/textColor"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logprof"
+        app:layout_constraintVertical_bias="0.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

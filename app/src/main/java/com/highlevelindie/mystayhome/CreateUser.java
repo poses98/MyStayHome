@@ -73,15 +73,12 @@ public class CreateUser extends AppCompatActivity {
                     Geocoder geocoder1 = new Geocoder(CreateUser.this);
                     try {
                         addresses = (ArrayList<Address>) geocoder1.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-                        Log.d("TAG", "fallo aqui: ");
-
                         if (addresses != null && addresses.size() > 0) {
                             Address address = addresses.get(0);
                             user.setLatitude(address.getLatitude());
                             user.setLongitude(address.getLongitude());
                             user.setCity(address.getLocality());
                             insertIntoDatabase();
-                            Log.d("TAG", "" + address.getAddressLine(0) + ", " + address.getLocality());
                         }
                     } catch (IOException e) {
                         e.printStackTrace();

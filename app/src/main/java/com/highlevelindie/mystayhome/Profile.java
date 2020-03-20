@@ -1,5 +1,8 @@
 package com.highlevelindie.mystayhome;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -38,6 +41,8 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
         usrTxt = findViewById(R.id.nicknametxt);
         Button savebtn = findViewById(R.id.saveProfile);
         savebtn.setOnClickListener(this);
+        Button logout = findViewById(R.id.logout);
+        logout.setOnClickListener(this);
 
         findViewById(R.id.backbutton).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,15 +61,34 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
                 new OnCompleteListener<DocumentSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                        user = task.getResult().toObject(User.class);
+                        try {
+                            user = task.getResult().toObject(User.class);
+                            usrTxt.setText(user.getNickname());
+                        }catch (NullPointerException e){
+                            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            intent.putExtra("isNull",true);
+                            startActivity(intent);
+                        }
+
                     }
                 });
     }
 
     @Override
     public void onClick(View v) {
-        log.setText("Comenzando la actualización de datos");
-        updateProfile();
+        switch (v.getId()){
+            case R.id.saveProfile:
+                log.setText("Comenzando la actualización de datos");
+                updateProfile();
+                break;
+            case R.id.politica:
+                break;
+            case R.id.logout:
+                showPopup(Profile.class);
+                break;
+        }
+
     }
 
     private void updateProfile() {
@@ -154,4 +178,89 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
             }
         });
     }
+
+    private void showPopup(final Class target) {
+        final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+
+        alertDialogBuilder
+                .setTitle("CERRAR SESIÓN")
+                .setMessage("¿ESTÁ SEGURO DE QUE QUIERE CERRAR LA SESIÓN ACTIVA? ESTO ELIMINARÁ TODOS" +
+                        " SUS DATOS RELACIONADOS CON LA APLICACIÓN")
+                .setCancelable(true)
+                .setPositiveButton("LO ENTIENDO", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        cerrarSesion();
+
+                    }
+                }).setNegativeButton("CANCELAR", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+
+            }
+        });
+
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+
+    private void cerrarSesion() {
+
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        db.collection("users").
+                document(mAuth.getCurrentUser().getUid()).
+                delete().
+                addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        log.setText("Datos de usuario borrados");
+
+                        closeRealtTime();
+                    }
+                });
+
+
+    }
+
+    private void closeRealtTime() {
+        final DatabaseReference mRef = FirebaseDatabase.getInstance().getReference();
+        final FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        log.setText("Borrando nombre del mapa");
+
+        mRef.child("GeneralLocations").child(mAuth.getCurrentUser().getUid()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                deleteClap();
+            }
+        });
+
+    }
+
+    private void deleteClap() {
+        final DatabaseReference mRef = FirebaseDatabase.getInstance().getReference();
+        final FirebaseAuth mAuth = FirebaseAuth.getInstance();
+
+        mRef.child("Claps").
+                child(mAuth.getCurrentUser().getUid()).
+                removeValue().
+                addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                closeSession();
+            }
+        });
+    }
+
+    private void closeSession() {
+        final FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        mAuth.signOut();
+        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+
 }

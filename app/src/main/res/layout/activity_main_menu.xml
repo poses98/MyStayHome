@@ -9,11 +9,11 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="408dp"
-        android:layout_height="249dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginEnd="3dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+        app:layout_constraintBottom_toTopOf="@id/constraintLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -40,7 +40,8 @@
             android:id="@+id/txtGeneral"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:gravity="left"
+            android:paddingLeft="10dp"
             android:text="@string/contadorGeneral"
             android:textColor="@color/textColor"
             android:textSize="18sp" />
@@ -49,15 +50,18 @@
             android:id="@+id/contGeneral"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="monospace"
             android:gravity="center"
             android:textColor="@color/textColor"
-            android:textSize="36sp" />
+            android:textSize="50sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtCiudad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:gravity="left"
+            android:paddingLeft="10dp"
             android:text="@string/contadorCiudad"
             android:textColor="@color/textColor"
             android:textSize="18sp" />
@@ -66,16 +70,17 @@
             android:id="@+id/contCiudad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="monospace"
             android:gravity="center"
             android:textColor="@color/textColor"
-            android:textSize="36sp" />
+            android:textSize="50sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="415dp"
-        android:layout_height="449dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

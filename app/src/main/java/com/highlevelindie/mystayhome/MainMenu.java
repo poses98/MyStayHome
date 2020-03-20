@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -73,10 +74,16 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         try {
-                            user = Objects.requireNonNull(task.getResult()).toObject(User.class);
-                        }catch(Exception e){
-                            user = new User();
-                            user.setCity("Madrid");
+                            user = task.getResult().toObject(User.class);
+                            if (user.getCity() == null) {
+
+                            }
+                        }catch(NullPointerException e){
+                            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            intent.putExtra("isNull",true);
+                            startActivity(intent);
+                            Log.d("TAG", "onComplete: mando a la mainact");
                         }finally {
                             getCount();
                         }

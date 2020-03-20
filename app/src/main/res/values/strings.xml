@@ -15,8 +15,8 @@
     <string name="menuAplausos">APLAUSOS A LOS SANITARIOS</string>
     <string name="menuAyuda">AYUDA</string>
     <string name="menuPerfil">PERFIL</string>
-    <string name="contadorCiudad">USUARIOS EN TU CIUDAD</string>
-    <string name="contadorGeneral">USUARIOS EN TU PAÍS</string>
+    <string name="contadorCiudad">USUARIOS EN CASA EN TU LOCALIDAD</string>
+    <string name="contadorGeneral">USUARIOS EN CASA</string>
     <string name="maleGender">HOMBRE</string>
     <string name="femaleGender">MUJER</string>
     <string name="otherGender">OTRO</string>
@@ -26,8 +26,10 @@
     <string name="clapwall">ÚLTIMOS 50 APLAUSOS</string>
     <string name="clapviw">APLAUSOS</string>
     <string name="cLAPCREATION">CREAR APLAUSO</string>
-    <string name="vermuro">VER MURO DE APLAUSOS</string>
-
+    <string name="vermuro">VER COMENTARIOS A LOS SANITARIOS</string>
+    <string name="deleteProfile">Cerrar Sesión</string>
+    <string name="showPrivacy">VER POLÍTICA DE PRIVACIDAD</string>
+    <string name="nullError">Ha ocurrido un error al recuperar el perfil. Probablemente por un error durante el registro</string>
     <string name="sendClapText">Envía un aplauso a los sanitarios del país, ¡puedes acompañarlo
     de un mensaje si lo deseas!</string>
     <string name="clapsSent">APLAUSOS ENVIADOS EN EL PAÍS</string>
