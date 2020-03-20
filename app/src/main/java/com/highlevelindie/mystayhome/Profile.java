@@ -43,7 +43,8 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
         savebtn.setOnClickListener(this);
         Button logout = findViewById(R.id.logout);
         logout.setOnClickListener(this);
-
+        Button politics = findViewById(R.id.politica);
+        politics.setOnClickListener(this);
         findViewById(R.id.backbutton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,6 +84,7 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
                 updateProfile();
                 break;
             case R.id.politica:
+                Intent intent = new Intent(getApplicationContext(),Privacy.class);
                 break;
             case R.id.logout:
                 showPopup(Profile.class);

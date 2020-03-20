@@ -17,11 +17,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name="com.highlevelindie.mystayhome.ClapWall"></activity>
-        <activity android:name="com.highlevelindie.mystayhome.Profile" />
-        <activity android:name="com.highlevelindie.mystayhome.CreateUser" />
-        <activity android:name="com.highlevelindie.mystayhome.create_clap" />
-        <activity android:name="com.highlevelindie.mystayhome.SendClapScreen" />
+        <activity android:name=".Privacy"></activity>
+        <activity android:name=".ClapWall" />
+        <activity android:name=".Profile" />
+        <activity android:name=".CreateUser" />
+        <activity android:name=".create_clap" />
+        <activity android:name=".SendClapScreen" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -38,14 +39,14 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:name="com.highlevelindie.mystayhome.MapsActivity"
+            android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name="com.highlevelindie.mystayhome.MainMenu" />
-        <activity android:name="com.highlevelindie.mystayhome.AskLocation" />
-        <activity android:name="com.highlevelindie.mystayhome.Nickname_selection" />
-        <activity android:name="com.highlevelindie.mystayhome.Age_selection" />
-        <activity android:name="com.highlevelindie.mystayhome.Gender_selection" />
-        <activity android:name="com.highlevelindie.mystayhome.MainActivity">
+        <activity android:name=".MainMenu" />
+        <activity android:name=".AskLocation" />
+        <activity android:name=".Nickname_selection" />
+        <activity android:name=".Age_selection" />
+        <activity android:name=".Gender_selection" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
