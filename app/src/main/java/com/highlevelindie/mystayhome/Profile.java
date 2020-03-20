@@ -92,7 +92,13 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
     }
 
     private void updateProfile() {
-        user.setNickname(usrTxt.getText().toString());
+        String newName = usrTxt.getText().toString();
+        if(newName.isEmpty()){
+            newName = "Anon";
+            usrTxt.setText(newName);
+        }
+        user.setNickname(newName);
+
         log.setText("Conectando con la base de datos");
 
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
