@@ -32,7 +32,7 @@
     <string name="nullError">Ha ocurrido un error al recuperar el perfil. Probablemente por un error durante el registro</string>
     <string name="sendClapText">Envía un aplauso a los sanitarios del país, ¡puedes acompañarlo
     de un mensaje si lo deseas!</string>
-    <string name="clapsSent">APLAUSOS ENVIADOS EN EL PAÍS</string>
+    <string name="clapsSent">APLAUSOS ENVIADOS EN TOTAL</string>
     <string name="sendClapButton">ENVIAR MI APLAUSO</string>
 
     <string name="stayHome">#QuédateEnCasa</string>
