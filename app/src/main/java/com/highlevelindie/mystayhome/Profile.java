@@ -85,6 +85,7 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
                 break;
             case R.id.politica:
                 Intent intent = new Intent(getApplicationContext(),Privacy.class);
+                startActivity(intent);
                 break;
             case R.id.logout:
                 showPopup(Profile.class);

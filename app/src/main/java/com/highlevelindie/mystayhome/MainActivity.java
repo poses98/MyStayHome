@@ -39,7 +39,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tvPolitics.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showHelp(getClass(), "POLITICA DE PRIVACIDAD", R.string.privacypolitics);
+                Intent intent = new Intent(getApplicationContext(),Privacy.class);
+                startActivity(intent);
             }
         });
 
