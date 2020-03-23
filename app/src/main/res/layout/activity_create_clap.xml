@@ -82,7 +82,7 @@
         android:backgroundTint="#CFCFCF"
         android:ems="10"
         android:gravity="start|top"
-        android:hint="Escribe un mensaje si te apetece\nLos usuarios podrán verlo en los comentarios"
+        android:hint="@string/sendClapText"
         android:inputType="textMultiLine"
         android:padding="10dp"
         app:layout_constraintBottom_toTopOf="@+id/sendClap"

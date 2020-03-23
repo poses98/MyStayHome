@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -21,6 +22,7 @@ public class SendClapScreen extends AppCompatActivity implements View.OnClickLis
 
     private TextView clapCount;
     private TextView wall;
+    private Button sendClap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,14 +37,37 @@ public class SendClapScreen extends AppCompatActivity implements View.OnClickLis
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), ClapWall.class);
                 startActivity(intent);
+                finish();
             }
         });
 
-        Button sendClap = findViewById(R.id.sendClap);
+        sendClap = findViewById(R.id.sendClap);
         sendClap.setOnClickListener(this);
         ImageButton back = findViewById(R.id.backbutton);
         back.setOnClickListener(this);
         getCount();
+        changeButtonName();
+    }
+
+    private void changeButtonName() {
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        final TextView alreadyClapped = findViewById(R.id.alreadyClapped);
+        mReference.child("Claps").
+                child(mAuth.getCurrentUser().getUid()).
+                addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists() || getIntent().getBooleanExtra("Clapped",false)){
+                    sendClap.setText(R.string.viewClapButton);
+                    alreadyClapped.setText(R.string.alreadyClapped);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     private void getCount() {
@@ -70,6 +95,8 @@ public class SendClapScreen extends AppCompatActivity implements View.OnClickLis
                 finish();
                 break;
         }
-
     }
+
+
+
 }

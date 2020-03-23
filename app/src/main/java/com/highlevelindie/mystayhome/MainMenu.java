@@ -149,7 +149,8 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
 
         alertDialogBuilder
                 .setTitle("AYUDA")
-                .setMessage("Utiliza el botón de aplausos para mandar ánimos al personal sanitario.\n\n" +
+                .setMessage("Utiliza el botón de aplausos para mandar ánimos a los trabajadores que hacen posible " +
+                        "que todos nosotros nos quedemos en casa.\n\n" +
                         "Con el botón de mapa podrás ver un mapa en tiempo real de los usuarios que se" +
                         " encuentran en sus casas.\n\nEn el perfil puedes modificar tu nombre de usuario")
                 .setCancelable(true)

@@ -194,11 +194,11 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
         final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 
         alertDialogBuilder
-                .setTitle("CERRAR SESIÓN")
-                .setMessage("¿ESTÁ SEGURO DE QUE QUIERE CERRAR LA SESIÓN ACTIVA? ESTO ELIMINARÁ TODOS" +
-                        " SUS DATOS RELACIONADOS CON LA APLICACIÓN")
+                .setTitle("¿ESTÁS SEGURO?")
+                .setMessage("ESTO ELIMINARÁ TODOS" +
+                        " TUS DATOS RELACIONADOS CON LA APLICACIÓN")
                 .setCancelable(true)
-                .setPositiveButton("LO ENTIENDO", new DialogInterface.OnClickListener() {
+                .setPositiveButton("CERRAR SESIÓN", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
                         cerrarSesion();
@@ -240,7 +240,7 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
     private void closeRealtTime() {
         final DatabaseReference mRef = FirebaseDatabase.getInstance().getReference();
         final FirebaseAuth mAuth = FirebaseAuth.getInstance();
-        log.setText("Borrando nombre del mapa");
+        log.setText("Borrando usuario del mapa");
 
         mRef.child("GeneralLocations").child(mAuth.getCurrentUser().getUid()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
@@ -248,6 +248,8 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
                 deleteClap();
             }
         });
+        mRef.child(user.getCity()).child(mAuth.getCurrentUser().getUid()).removeValue();
+
 
     }
 

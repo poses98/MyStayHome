@@ -11,35 +11,44 @@
     <string name="anonText">Si no se rellena el campo se procederá de manera anónima, el nombre de
     usuario se muestra en el mapa y en los agradecimientos al personal sanitario, puede seleccionarlo
     más adelante.</string>
+
+    <!-- MENU ITEMS -->
     <string name="menuMap">MAPA USUARIOS EN CASA</string>
-    <string name="menuAplausos">APLAUSOS A LOS SANITARIOS</string>
+    <string name="menuAplausos">APLAUSOS A LOS TRABAJADORES</string>
     <string name="menuAyuda">AYUDA</string>
     <string name="menuPerfil">PERFIL</string>
+
+
     <string name="contadorCiudad">USUARIOS EN CASA EN TU LOCALIDAD</string>
     <string name="contadorGeneral">USUARIOS EN CASA</string>
     <string name="maleGender">HOMBRE</string>
     <string name="femaleGender">MUJER</string>
     <string name="otherGender">OTRO</string>
-    <string name="profileActivity">PERFIL DE USUARIO</string>
+    <string name="profileActivity">MI PERFIL</string>
     <string name="saveProfile">GUARDAR</string>
     <string name="mapview">USUARIOS EN CASA</string>
-    <string name="clapwall">ÚLTIMOS 50 APLAUSOS</string>
+    <string name="clapwall">ÚLTIMOS APLAUSOS</string>
     <string name="clapviw">APLAUSOS</string>
     <string name="cLAPCREATION">CREAR APLAUSO</string>
-    <string name="vermuro">VER COMENTARIOS A LOS SANITARIOS</string>
+    <string name="vermuro">VER COMENTARIOS\nA LOS TRABAJADORES</string>
     <string name="deleteProfile">Cerrar Sesión</string>
     <string name="showPrivacy">VER POLÍTICA DE PRIVACIDAD</string>
     <string name="nullError">Ha ocurrido un error al recuperar el perfil. Probablemente por un error durante el registro</string>
-    <string name="sendClapText">Envía un aplauso a los sanitarios del país, ¡puedes acompañarlo
-    de un mensaje si lo deseas!</string>
-    <string name="clapsSent">APLAUSOS ENVIADOS EN TOTAL</string>
+    <string name="sendClapText">Envía un aplauso a los trabajadores que siguen en sus puestos de trabajo
+        (sanitarios, transportistas, empleados de supermercados…) que se exponen
+        para que tengamos lo necesario durante la cuarentena.\n\n
+        ¡Puedes acompañarlo de un mensaje si lo deseas!\nNo hay límite así que exprésate libremente</string>
+    <string name="clapsSent">APLAUSOS ENVIADOS</string>
     <string name="sendClapButton">ENVIAR MI APLAUSO</string>
+    <string name="viewClapButton">MODIFICAR MI APLAUSO</string>
+    <string name="updateClapButton">ACTUALIZAR MI APLAUSO</string>
+    <string name="alreadyClapped">YA HAS APLAUDIDO ¡BIEN HECHO!</string>
 
     <string name="stayHome">#QuédateEnCasa</string>
     <string name="seResponsable">#SéResponsable</string>
     <string name="title_activity_maps">Map</string>
 
-    <string name="creatingUser">Creando perfil de usuario...</string>
+    <string name="creatingUser">Creando perfil usuario...</string>
     <string name="createInit">Dando forma al perfil</string>
     <string name="createLocation">Cogiendo la localización</string>
     <string name="createData">Llamando a la base de datos</string>
