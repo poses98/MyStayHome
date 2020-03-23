@@ -39,16 +39,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginBottom="47dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/politica"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/askPermission" />
+
     <TextView
         android:id="@+id/politica"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="104dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="104dp"
+        android:layout_marginEnd="50dp"
         android:layout_marginBottom="16dp"
         android:gravity="center"
-        android:text="Al hacer click en ENTRAR aceptas las políticas de uso y privacidad"
+        android:text="Acepto las políticas de privacidad"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
