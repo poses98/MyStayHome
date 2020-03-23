@@ -1,13 +1,9 @@
 package com.highlevelindie.mystayhome;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.location.LocationManager;
 import android.os.Bundle;
-import android.provider.Settings;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -26,8 +22,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.highlevelindie.mystayhome.model.User;
-
-import java.util.Objects;
 
 public class MainMenu extends AppCompatActivity implements View.OnClickListener {
     FirebaseAuth mAuth;
@@ -67,7 +61,6 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
     }
 
     private void getUser() {
-
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("users").document(mAuth.getCurrentUser().getUid()).get().addOnCompleteListener(
                 new OnCompleteListener<DocumentSnapshot>() {
@@ -78,13 +71,12 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
                             if (user.getCity() == null) {
 
                             }
-                        }catch(NullPointerException e){
-                            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                        } catch (NullPointerException e) {
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            intent.putExtra("isNull",true);
+                            intent.putExtra("isNull", true);
                             startActivity(intent);
-                            Log.d("TAG", "onComplete: mando a la mainact");
-                        }finally {
+                        } finally {
                             getCount();
                         }
 
@@ -105,7 +97,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
             }
         });
         String cityStr = "Madrid";
-        if(user != null) {
+        if (user != null) {
             cityStr = user.getCity();
         }
 
@@ -160,8 +152,6 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
                         dialog.cancel();
                     }
                 });
-
-
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
     }

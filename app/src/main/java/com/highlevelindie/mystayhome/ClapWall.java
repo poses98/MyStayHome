@@ -94,8 +94,8 @@ public class ClapWall extends AppCompatActivity implements View.OnClickListener 
             TextView userCity = view.findViewById(R.id.commentCity);
             TextView userComment = view.findViewById(R.id.commentBody);
 
-            if(userName.length() >= 10){
-                userName.setText(userName.getText().toString().split("",10)[0]);
+            if (userName.length() >= 10) {
+                userName.setText(userName.getText().toString().split("", 10)[0]);
             }
             // Asignamos su valor mediante setText
             userName.setText(clap.getUser());

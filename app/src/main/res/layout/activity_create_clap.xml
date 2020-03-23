@@ -81,10 +81,10 @@
         android:background="#92CFCFCF"
         android:backgroundTint="#CFCFCF"
         android:ems="10"
-        android:gravity="start|top"
         android:hint="@string/sendClapText"
         android:inputType="textMultiLine"
         android:padding="10dp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/sendClap"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
